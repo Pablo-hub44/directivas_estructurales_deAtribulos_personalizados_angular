@@ -1,0 +1,27 @@
+<main>
+    <app-learning-resources />
+
+    <hr />
+
+    <app-auth />
+    <!--
+    directivas modernas > 17.2
+    @if(isAdmin()){
+    <p>Solo los admin pueden ver esto!</p>
+    } -->
+
+    <!-- directiva estructural, versiones mas antiguas actuales -->
+    <!-- <p *ngIf="isAdmin()">Solo los administradores pueden ver esto!</p> -->
+
+    <!-- usando nuestra directiva -->
+    <!-- <p appAuth="admin">Solo los administradores pueden ver esto!</p> -->
+
+    <!-- usando ng template -->
+    <!-- <ng-template appAuth="admin" ngIf="">
+        <p>Solo los administradores pueden ver esto</p>
+    </ng-template> -->
+    <!-- <!-- otra manera -->
+    <p *appAuth="'admin'" appLog class="protected-content admin">Solo los administradores deberian ver esto!</p>
+    <p *appAuth="'user'" class="protected-content unauthenticated">Solo los usuarios deberian ver esto!</p>
+    <p *appAuth="'guest'" class="protected-content authenticated">Solo los invitados deberian ver esto!</p>
+</main>
